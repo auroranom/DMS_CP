@@ -5,10 +5,13 @@ Run with:  python setup_db.py
 import mysql.connector
 from mysql.connector import Error
 
-DB_HOST = "localhost"
-DB_USER = "root"
-DB_PASS = "Harshu@19"
-DB_NAME = "nutchoc_db"
+import os
+
+DB_HOST = os.environ.get("MYSQL_HOST", "localhost")
+DB_PORT = int(os.environ.get("MYSQL_PORT", 3306))
+DB_USER = os.environ.get("MYSQL_USER", "root")
+DB_PASS = os.environ.get("MYSQL_PASS", "Harshu@19")
+DB_NAME = os.environ.get("MYSQL_DB", "nutchoc_db")
 
 
 def run(cur, sql):
@@ -26,7 +29,7 @@ def main():
 
     try:
         conn = mysql.connector.connect(
-            host=DB_HOST, user=DB_USER, password=DB_PASS
+            host=DB_HOST, port=DB_PORT, user=DB_USER, password=DB_PASS
         )
     except Error as e:
         print(f"✗ Cannot connect: {e}")

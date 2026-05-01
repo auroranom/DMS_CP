@@ -7,13 +7,23 @@ import mysql.connector
 from mysql.connector import Error
 import streamlit as st
 
-#  DB config 
-DB_CONFIG = {
-    "host":     "localhost",
-    "user":     "root",
-    "password": "Harshu@19",      
-    "database": "nutchoc_db",
-}
+#  DB config — reads from Streamlit secrets (cloud) or falls back to local
+try:
+    DB_CONFIG = {
+        "host":     st.secrets["mysql"]["host"],
+        "port":     int(st.secrets["mysql"]["port"]),
+        "user":     st.secrets["mysql"]["user"],
+        "password": st.secrets["mysql"]["password"],
+        "database": st.secrets["mysql"]["database"],
+        "ssl_disabled": False,
+    }
+except Exception:
+    DB_CONFIG = {
+        "host":     "localhost",
+        "user":     "root",
+        "password": "Harshu@19",      
+        "database": "nutchoc_db",
+    }
 
 #  Connection 
 def get_connection():
