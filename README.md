@@ -4,7 +4,7 @@ A **DBMS Course Project** simulating a small-scale chocolate manufacturing unit 
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 
 | Feature | Details |
 |---|---|
@@ -16,7 +16,7 @@ A **DBMS Course Project** simulating a small-scale chocolate manufacturing unit 
 
 ---
 
-## 🏗️ Database Schema
+##  Database Schema
 
 ```
 Supplier  ──<  RawMaterial
@@ -33,7 +33,7 @@ Product   ──<  ProductionBatch  ──triggers──>  Inventory
 
 ---
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### 1. Prerequisites
 - MySQL 8.x installed and running
@@ -97,7 +97,7 @@ Then open **http://localhost:8501** in your browser.
 
 ---
 
-## 🗃️ Key DBMS Concepts Demonstrated
+##  Key DBMS Concepts Demonstrated
 
 - **ER Modelling** → 5 entities with clear relationships
 - **Normalization** → All tables in 3NF
@@ -115,16 +115,16 @@ Then open **http://localhost:8501** in your browser.
 
 | Page | Description |
 |---|---|
-| 🏠 Dashboard | KPI cards + daily production chart + low-stock alerts |
-| 🏭 Supplier Management | Add, edit, delete suppliers |
-| 🥄 Raw Material Management | Track & update ingredient stock |
-| ⚙️ Production Batches | Record/edit the two daily batches |
-| 📦 Inventory Monitoring | View auto-updated daily totals |
-| 📊 Reports | Date-range reports + analytics charts |
+|  Dashboard | KPI cards + daily production chart + low-stock alerts |
+|  Supplier Management | Add, edit, delete suppliers |
+|  Raw Material Management | Track & update ingredient stock |
+|  Production Batches | Record/edit the two daily batches |
+|  Inventory Monitoring | View auto-updated daily totals |
+|  Reports | Date-range reports + analytics charts |
 
 ---
 
-## ⚡ Trigger Explanation
+##  Trigger Explanation
 
 ```sql
 AFTER INSERT ON ProductionBatch
